@@ -8,4 +8,4 @@ client.once("ready", ()=>{
     console.log("Bot is online!")
 });
 
-client.login('ODg2OTg2Mjc1Mzg5ODQ5NjEw.YT9kVw.VW2V4yuFcKD43_MUTsOdXYV80oA');
+client.login('TOKEN');
