@@ -36,4 +36,4 @@ client.on('message', message=>{
     };
 });
 
-client.login('ODg2OTg2Mjc1Mzg5ODQ5NjEw.YT9kVw.MAihn6w1_olg32emapllUpPs0Zo');
+client.login('TOKEN');
