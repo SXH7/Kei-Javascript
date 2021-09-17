@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const { Client, Intents } = require('discord.js');
 const client = new Discord.Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
-const prefix = 'k!'
+const prefix = 'k.'
 
 const fs = require('fs')
 
@@ -16,7 +16,7 @@ for(const file of commandFiles){
     client.command.set(command.name, command);
 }
 
-client.once("ready", ()=>{
+client.once("ready", ()=>{ 
     console.log("Bot is online!")
 });
 
@@ -31,6 +31,9 @@ client.on('message', message=>{
     if(command === 'ping'){
         client.command.get('ping').execute(message, args)
     };
+    if(command === 'help'){
+        client.command.get('help').execute(message, args)
+    };
 });
 
-client.login('TOKEN');
+client.login('ODg2OTg2Mjc1Mzg5ODQ5NjEw.YT9kVw.MAihn6w1_olg32emapllUpPs0Zo');
