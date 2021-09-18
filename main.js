@@ -34,6 +34,15 @@ client.on('message', message=>{
     if(command === 'help'){
         client.command.get('help').execute(message, args)
     };
+    if(command === 'purge'){
+        client.command.get('purge').execute(message, args)
+    };
+    if(command === 'kick'){
+        client.command.get('kick').execute(message, args)
+    };
+    if(command === 'ban'){
+        client.command.get('ban').execute(message, args)
+    }
 });
 
 client.login('TOKEN');
