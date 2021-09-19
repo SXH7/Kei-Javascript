@@ -41,9 +41,9 @@ client.on('message', message=>{
         client.command.get('kick').execute(message, args)
     } else if(command === 'ban'){
         client.command.get('ban').execute(message, args)
-    } /*else if(command === 'mute'){
+    } else if(command === 'mute'){
         client.command.get('mute').execute(message, args)
-    }*/
+    }
 });
 
 client.login('TOKEN');
