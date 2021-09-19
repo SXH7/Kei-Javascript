@@ -8,12 +8,15 @@ const prefix = 'k.'
 const fs = require('fs')
 
 client.command = new Discord.Collection();
-const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('./commands/');
 
-for(const file of commandFiles){
-    const command = require(`./commands/${file}`);
+for(const folder of commandFiles){
+    const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
+    for(const file of commandFiles){
+        const command = require(`./commands/${folder}/${file}`);
 
-    client.command.set(command.name, command);
+        client.command.set(command.name, command);
+    }
 }
 
 client.once("ready", ()=>{ 
@@ -30,19 +33,17 @@ client.on('message', message=>{
 
     if(command === 'ping'){
         client.command.get('ping').execute(message, args)
-    };
-    if(command === 'help'){
+    } else if(command === 'help'){
         client.command.get('help').execute(message, args)
-    };
-    if(command === 'purge'){
+    } else if(command === 'purge'){
         client.command.get('purge').execute(message, args)
-    };
-    if(command === 'kick'){
+    } else if(command === 'kick'){
         client.command.get('kick').execute(message, args)
-    };
-    if(command === 'ban'){
+    } else if(command === 'ban'){
         client.command.get('ban').execute(message, args)
-    }
+    } /*else if(command === 'mute'){
+        client.command.get('mute').execute(message, args)
+    }*/
 });
 
 client.login('TOKEN');
